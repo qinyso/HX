@@ -32,7 +32,7 @@
     
     <text class="count-container" 
       style="{{showinfo[index].counts <= 0 ? 'color: #FF0000;' : 'color: #333333;'}}">
-  {{showinfo[index].counts <= 0 ? '满额' : '差' + showinfo[index].counts + '人'}}
+  {{showinfo[index].counts <= 0 ? '满额' : '还需 ' + showinfo[index].counts +'人组队'}}
 </text>
     </view>
   </view>
