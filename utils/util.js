@@ -39,7 +39,7 @@ function ReqSend(url,query){
         content: '请求时间过长',
       });
       wx.hideLoading();
-      reject(res)
+      reject(err)
     }
   })
  })
