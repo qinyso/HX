@@ -96,10 +96,10 @@ Page({
               url: '../teamInfo/teamInfo?info=' + JSON.stringify(data)
             })
             } else {
-              wx.showToast({
-                title: data.errorInfo,
-                icon: 'none',
-                duration: 2000
+              wx.showModal({
+                content: data.errorInfo,
+                showCancel: false,
+                confirmText: '确定'
               })
             }
           })
