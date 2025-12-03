@@ -121,14 +121,17 @@
   display: flex;
   flex-direction: column;
   gap: 20rpx;
-  align-items: center;
+  align-items: flex-start;
+  width: 80%;
+  margin: 0 auto;
 }
 
 .info-item {
   display: flex;
   align-items: center;
   padding: 10rpx 0;
-  justify-content: center;
+  justify-content: flex-start;
+  width: 100%;
 }
 
 .label {
