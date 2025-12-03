@@ -30,6 +30,13 @@
     <image class="iocin" src="/images/enter.png"></image>
   </view>
 </view>
+<view class="userrow" bindtap="goIdentityCode">
+  <view class="box">
+    <image class="l-ico" src="/images/my.png"></image>
+    <text>身份码</text>
+    <image class="iocin" src="/images/enter.png"></image>
+  </view>
+</view>
 
 <view class="userrow" bindtap="gologin"wx:if="{{!userInfo}}">
   <view class="box">
@@ -37,4 +44,5 @@
     <text>授权登录</text>
     <image class="iocin" src="/images/enter.png"></image>
   </view>
+  
 </view>

@@ -1,3 +1,4 @@
+const barcode = require('./barcode.js')
 const app = getApp()
 const formatTime = date => {
   const year = date.getFullYear()
@@ -46,7 +47,15 @@ function ReqSend(url,query){
 
 }
 
+function toBarcode (canvasId, code, width, height) {
+  barcode.code128(wx.createCanvasContext(canvasId), code, width, height);
+}
+
+
+
+
 module.exports = {
   formatTime: formatTime,
-  ReqSend:ReqSend
+  ReqSend: ReqSend,
+  toBarcode: toBarcode
 }

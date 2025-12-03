@@ -1,6 +1,7 @@
 {
   "dependencies": {
     "base64-arraybuffer": "^1.0.2",
-    "tdesign-miniprogram": "^1.7.0"
+    "tdesign-miniprogram": "^1.7.0",
+    "wxbarcode": "^1.0.2"
   }
 }

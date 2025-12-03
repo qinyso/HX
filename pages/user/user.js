@@ -10,7 +10,8 @@ Page({
     userInfo: null,
     myteam: null,
     myinfo: null,
-    stuName:null
+    stuName:null,
+    identityCode: null
   },
   goRegister() {
     if(app.globalData.userInfo){
@@ -107,6 +108,64 @@ Page({
   }
  
   },
+  // 生成身份码（基于学号）
+  generateIdentityCode(stuNo) {
+    // 简单的身份码生成逻辑，可以根据需要调整
+    let code = '';
+    for (let i = 0; i < stuNo.length; i++) {
+      code += String.fromCharCode(65 + parseInt(stuNo[i]) % 26);
+    }
+    return code;
+  },
+  
+  // 跳转到身份码页面
+  goIdentityCode() {
+    if(!app.globalData.userInfo){
+      wx.showModal({
+        title: '尚未授权',
+        content: '请先授权绑定微信信息',
+        confirmText: '立即授权',
+        confirmColor: '#7b85fe',
+        cancelText: '拒绝授权',
+        success: (res) => {
+          if (res.confirm) {
+            wx.navigateTo({
+              url: '/pages/user/login/login',
+            })
+          } else if (res.cancel) {
+            console.log('用户点击取消')
+          }
+        }
+      })
+    }else if (!app.globalData.stuNo) {
+      wx.showModal({
+        title: '尚未报名',
+        content: '请先前往我的页面报名绑定身份信息',
+        confirmText: '立即报名',
+        confirmColor: '#7b85fe',
+        cancelText: '暂不报名',
+        success(res) {
+          if (res.confirm) {
+            wx.navigateTo({
+              url: '/pages/user/register/register',
+            })
+          } else if (res.cancel) {
+            console.log('用户点击取消')
+          }
+        }
+      })
+    } else {
+      // 生成身份码并存储
+      const identityCode = this.generateIdentityCode(app.globalData.stuNo);
+      wx.setStorageSync('identityCode', identityCode);
+      
+      // 跳转到身份码页面
+      wx.navigateTo({
+        url: '/pages/user/identityCode/identityCode',
+      })
+    }
+  },
+  
   goUpload(){
     if(!app.globalData.userInfo){
       wx.showModal({

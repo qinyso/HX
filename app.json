@@ -9,7 +9,8 @@
     "pages/team/create/create",
     "pages/team/schools/schools",
     "pages/user/changeinfo/changeinfo",
-    "pages/team/upload/upload"
+    "pages/team/upload/upload",
+    "pages/user/identityCode/identityCode"
   ],
   "window": {
     "backgroundTextStyle": "dark",

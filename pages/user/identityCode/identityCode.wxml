@@ -1,0 +1,46 @@
+<view class="container">
+  
+  
+  <view class="code-container">
+    <!-- 条形码区域 -->
+    <view class="barcode" bindtap="enlargeBarcode">
+      <canvas
+        canvas-id="barcodeCanvas"
+        class="barcode-canvas"
+      ></canvas>
+     
+    </view>
+    
+    <!-- 个人信息区域 -->
+    <view class="info-container">
+      <view class="info-item">
+        <text class="label">姓名:</text>
+        <text class="value">{{stuName}}</text>
+      </view>
+      
+      <view class="info-item">
+        <text class="label">学号:</text>
+        <text class="value">{{stuNo}}</text>
+      </view>
+      
+      <view class="info-item">
+        <text class="label">学院:</text>
+        <text class="value">{{college}}</text>
+      </view>
+      
+      <view class="info-item">
+        <text class="label">专业:</text>
+        <text class="value">{{major}}</text>
+      </view>
+    </view>
+  </view>
+  
+  <!-- 放大的条形码 -->
+  <view class="enlarged-barcode-container" wx:if="{{isBarcodeEnlarged}}" bindtap="hideEnlargedBarcode">
+    <canvas
+      canvas-id="enlargedBarcode"
+      class="enlarged-barcode-canvas"
+    ></canvas>
+    <view class="enlarged-barcode-text">点击任意区域关闭</view>
+  </view>
+</view>
